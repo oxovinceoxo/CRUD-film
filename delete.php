@@ -15,7 +15,7 @@ try {
 
 ?>
 
-<h1>Detail film</h1>
+<h1>confirmer suppression film</h1>
 <a href="index.php">retour</a>
 
 
@@ -33,22 +33,21 @@ $requete_insertion->execute();
 // 6 j'affiche mon element avec fetch (pour chercher les resultats)
 $resultat = $requete_insertion->fetch();
 
-if($resultat){
+
     ?>
 <ul>
     <li><?= $resultat['id_film'] ?></li>
     <li><?= $resultat['titre'] ?></li>
     <li><?= $resultat['duree'] ?></li>
     <li><?= $resultat['datefilm'] ?></li>
- </ul>    
+ </ul> 
+
+ <a href="deleteconfirme.php?id=<?=$resultat['id_film'] ?>">CONFIRMER LA SUPRESSION DU FILM</a>    
  
-  <?php
-}else{
-    echo "<p>Erreur : cet ID n'existe pas</p>";
-}
-?>
 
 <?php
 $content = ob_get_clean();
 require "template.php";
 ?>
+
+

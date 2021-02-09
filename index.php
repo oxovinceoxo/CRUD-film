@@ -1,5 +1,6 @@
 <?php
 $title = "crud films";
+//ob_start pour appeler mon template
 ob_start();
 //connexion a la base de donnée
 $user = "root";
@@ -14,7 +15,6 @@ try {
 }
 
 ?>
-
 
 <?php
 // 1 requete sql pour affihcer tout les elements de la base de données  
@@ -32,8 +32,19 @@ $liste = $BD->query($sql);
 
 while ($row = $liste->fetch())
 { 
-echo  '<p>' . $row['id_film'] . '-' . $row['titre'] . ' ' . $row['duree'] . ' heure ' . $row['datefilm'] . '</p>
-' . ' <a href="detail.php?id_film=<?= $row["id_film"] ?> " >detail</a> ' . ' <a href="">update</a> '. ' <a href="">delete</a> ';
+
+ ?>
+ <ul>
+    <li><?=$row['id_film']?></li>
+    <li><?=$row['titre']?></li>
+    <li><?=$row['duree']?></li>
+    <li><?=$row['datefilm']?></li>
+ </ul>
+ 
+<a href="detail.php?id_film=<?=$row['id_film']?> " >detail</a>
+<a href="updatefilm.php?id_film=<?=$row['id_film']?> ">update</a>
+<a href="delete.php?id_film=<?=$row['id_film']?> " >delete</a> 
+<?php
 }
 ?>
 
