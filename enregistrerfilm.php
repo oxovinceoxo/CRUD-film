@@ -27,14 +27,14 @@ if(isset($_POST['titre']) && !empty($_POST['titre'])){
 }
 
 if(isset($_POST['duree']) && !empty($_POST['duree'])){
-    $titre = ($_POST['duree']);
+    $duree = ($_POST['duree']);
 
 }else{
     echo "<p> Merci de bien remplir le champ</p>";
 }
 
 if(isset($_POST['datefilm']) && !empty($_POST['datefilm'])){
-    $titre = ($_POST['datefilm']);
+    $datefilm = ($_POST['datefilm']);
 
 }else{
     echo "<p> Merci de bien remplir le champ</p>";
@@ -48,7 +48,7 @@ $sql = "INSERT INTO FILMS (titre, duree, datefilm) VALUES (?,?,?)";
 
 $requete_insertion = $BD->prepare($sql);
 
-// 4 puis je bind (lier) les parametre
+// 4 puis je bind (lier) les parametres
 
 $requete_insertion->bindParam(1,$titre);
 $requete_insertion->bindParam(2,$duree);
@@ -59,7 +59,7 @@ $resultat = $requete_insertion->execute(array($titre, $duree, $datefilm));
 // 5 Si l'insertion fonctionne
 
 if($resultat){
-    //Message de réusite + bouton de retour à la liste
+    //retour sur la page des films 
     header("Location:http://localhost/CRUD%20films/");
 }else{
     echo "<p>Erreur: impossible d'enregitrer le film</p>";

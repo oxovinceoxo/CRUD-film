@@ -17,9 +17,9 @@ try {
 
 
 <?php
-//requete sql pour affihcer tout les elements de la base de données  
+// 1 requete sql pour affihcer tout les elements de la base de données  
 $sql = "SELECT * FROM films";
-// je stock la requete dans une variable
+// 2 je stock la requete dans une variable
 $liste = $BD->query($sql);
 
 ?>
@@ -28,9 +28,12 @@ $liste = $BD->query($sql);
 <a href="ajouterfilm.php">ajouter un film</a>
 
 <?php
+// 3 je fais une boucle while ou foreach pour lister les elements de la table
+
 while ($row = $liste->fetch())
 { 
-echo  '<p>' . $row['id_film'] . '-' . $row['titre'] . ' ' . $row['duree'] . ' heure ' . $row['datefilm'] . '</p>' . ' <a href="">detail</a> ' . ' <a href="">update</a> '. ' <a href="">delete</a> ';
+echo  '<p>' . $row['id_film'] . '-' . $row['titre'] . ' ' . $row['duree'] . ' heure ' . $row['datefilm'] . '</p>
+' . ' <a href="detail.php?id_film=<?= $row["id_film"] ?> " >detail</a> ' . ' <a href="">update</a> '. ' <a href="">delete</a> ';
 }
 ?>
 
