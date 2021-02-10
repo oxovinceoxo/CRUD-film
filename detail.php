@@ -32,7 +32,7 @@ $requete_insertion->bindParam(1, $id);
 $requete_insertion->execute();
 // 6 j'affiche mon element avec fetch (pour charger les resultats)
 $resultat = $requete_insertion->fetch();
-//test 4
+// branche vince
 if($resultat){
     ?>
 <ul>
