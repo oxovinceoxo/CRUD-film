@@ -1,10 +1,11 @@
 <?php
+// titre + ob_start pour recuperer le template
 $title = "ajouter un film";
 ob_start();
 //connexion a la base de donnée
 $user = "root";
 $pass = "";
-//Essaie de te connecter
+//Essaie de se connecter
 try {
     $BD = new PDO("mysql:host=localhost;dbname=ecommerce;charset=utf8", $user, $pass);
     //Fonction static de la classe PDO pour debug la connexion en cas d'erreur
@@ -15,8 +16,9 @@ try {
 
 ?>
 
-<h1>Ajouter un film ici</h1>
 
+<h1>Ajouter un film ici</h1>
+<!-- formulaire pour rajouter un film --->
 <form action="enregistrerfilm.php" method="POST">
     <label for="titre">titre du film</label>
     <input type="text" name="titre">
@@ -27,7 +29,9 @@ try {
     <label for="datefilm">date du film</label>
     <input type="date" name="datefilm">
 
-    <button type="submit">Enregistrer le film</button>
+    <button type="submit">Enregistrer le film</button>  
+
+ 
 </form>
 
 <?php

@@ -5,7 +5,7 @@ ob_start();
 //connexion a la base de donnée
 $user = "root";
 $pass = "";
-//Essaie de te connecter
+//Essaie de se connecter
 try {
     $BD = new PDO("mysql:host=localhost;dbname=ecommerce;charset=utf8", $user, $pass);
     //Fonction static de la classe PDO pour debug la connexion en cas d'erreur

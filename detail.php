@@ -4,7 +4,7 @@ ob_start();
 // 1 connexion a la base de donnée
 $user = "root";
 $pass = "";
-//Essaie de te connecter
+//Essaie de se connecter
 try {
     $BD = new PDO("mysql:host=localhost;dbname=ecommerce;charset=utf8", $user, $pass);
     //Fonction static de la classe PDO pour debug la connexion en cas d'erreur
@@ -30,7 +30,7 @@ $id = $_GET['id_film'];
 $requete_insertion->bindParam(1, $id);
 // 5 j'excute la requete 
 $requete_insertion->execute();
-// 6 j'affiche mon element avec fetch (pour chercher les resultats)
+// 6 j'affiche mon element avec fetch (pour charger les resultats)
 $resultat = $requete_insertion->fetch();
 
 if($resultat){
